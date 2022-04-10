@@ -17,7 +17,7 @@ while True:
         question_text: str = question_element.find_element(by=By.XPATH, value=f"./div/div/div/div/div").text
         if question_text in data:
             question_element.find_element(by=By.XPATH, value=f"./div/div[2]/div/div/span/div/div[label/div/div[2]/div/span/text()='{data[question_text]}']").click()
-        else:
+        elif question_element.find_elements(by=By.XPATH, value="./div/div/div/div/div/span[@aria-label='Required question']"):
             options = question_element.find_elements(by=By.XPATH, value=f"./div/div/div[2]/div/div/span/div/div")
             print(options)
             random.choice(options).click()
